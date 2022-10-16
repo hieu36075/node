@@ -1,5 +1,12 @@
-const Pool = require('pg').Pool
+const { Pool, Client } = require("pg");
 
+// const pg_conn = {
+//   user: "postgres",
+//   host: "localhost",
+//   database: "postgres",
+//   password: "123",
+//   port: 5432,
+// };
 const pg_conn = new Pool(
     {
         user: 'utvmdcafqradkl',
@@ -7,20 +14,23 @@ const pg_conn = new Pool(
         database: 'dfifpbr2l6a6j5',
         password: 'a57b486a174b6cfcf6d50a258da9d72fd33f4b51cd54a0d5a8f52211916887c0',
         port: 5432,
-        sal:{
+        ssl:{
             rejectUnauthorized: false
         },
     });
-    async function connect(){
 
-    const acc_query = 
-    {
-        text: 'SELECT * FORM admin Where name = $1 AND password = $2',
-        values: ['hieutc','hieutc']
-    };
-    var query_data = await pg_conn.query(acc_query);
-console.log(query_data);
-}
-connect();
-module.exports = pg_conn;
+//     const query = `
+// SELECT *
+// FROM admin
+// `;
 
+// pg_conn.query(query, (err, res) => {
+//     if (err) {
+//         console.error(err);
+//         return;
+//     }
+//     for (let row of res.rows) {
+//         console.log(row);
+//     }
+// });
+    module.exports = pg_conn

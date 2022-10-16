@@ -7,26 +7,24 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'LOGIN PAGE' });
+router.get('/login',  function(req, res, next) {
+  res.render('login', {  title: 'LOGIN PAGE' });
 });
-  // Process for POST require
-  router.post('/login', async function(req, res, next) {
- 
-    const username = res.username;
-    const password = res.password;
-    let authenticated = await authen(username,password);
-    if(authenticated == true)
-    {
-      console.log('thanh cong');
-    }
-    else
-    {
-
-console.log('That bai');
-    }
-    
-  });
-
+router.post('/login', async function(req, res, next) {
+  console.log('username: ' + req.body.username)
+  console.log('password: ' + req.body.password)
+  const username = req.body.username;
+  const password = req.body.password;
+  let authenticated = await authen(username,password);
+  if(authenticated == true)
+  {
+    res.render('login', {  title: 'Dang nhap thanh cong' });
+  }
+  else
+  {
+    res.render('login', {  title: 'Dang nhap that bai' });
+  }
+  
+});
 
 module.exports = router;
