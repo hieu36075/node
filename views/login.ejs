@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet', href='/stylesheets/style.css'>
+
+  <body>
+    <h1> <%= title%> </h1>
+    <p>Welecom to <%= title %></p>
+    <form action="login" method="post">
+        <div class="userName">
+            <input type = "text" class = "name" required>
+            <label for="name"> Username</label>
+        </div>
+        <div>
+            <input type="password" class = "pass" required>
+            <label for ="pass">Password </label>
+        </div>
+        <button class="btn">login</button>
+    </form>
+  </body>
+    </html> -->
+
+    <!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet', href='/stylesheets/style.css'>
+  </head>
+
+  <body>
+    <h1> <%= title%> </h1>
+    <form action="/login"  method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+    </html>
