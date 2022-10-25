@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
-var livereload = require("livereload");
-var connectLiveReload = require("connect-livereload");
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
@@ -37,7 +35,6 @@ app.use('/admin', adminRouter);
 app.use('/user', userRouter);
 
 
-app.use(connectLiveReload());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
