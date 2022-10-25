@@ -37,14 +37,6 @@ app.use('/admin', adminRouter);
 app.use('/user', userRouter);
 
 
-//liveloader
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
-
 app.use(connectLiveReload());
 
 // catch 404 and forward to error handler
