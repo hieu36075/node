@@ -3,11 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
+var livereload = require("livereload");
+var connectLiveReload = require("connect-livereload");
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
+var userRouter = require('./routes/user')
+// const session = require('express-session');
 
 var app = express();
+
+//Session setup
+app.use(session({
+  resave:true,
+  saveUninitialized: true,
+  secret: 'long_string_for_sercet',
+  cookie: {maxAge: 60000}}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +34,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/user', userRouter);
 
+
+//liveloader
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+
+app.use(connectLiveReload());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,5 +62,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
 
 module.exports = app;

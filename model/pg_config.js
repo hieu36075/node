@@ -1,12 +1,6 @@
 const { Pool, Client } = require("pg");
 
-// const pg_conn = {
-//   user: "postgres",
-//   host: "localhost",
-//   database: "postgres",
-//   password: "123",
-//   port: 5432,
-// };
+
 const pg_conn = new Pool(
     {
         user: 'utvmdcafqradkl',
@@ -19,18 +13,5 @@ const pg_conn = new Pool(
         },
     });
 
-//     const query = `
-// SELECT *
-// FROM admin
-// `;
-
-// pg_conn.query(query, (err, res) => {
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-//     for (let row of res.rows) {
-//         console.log(row);
-//     }
-// });
+// console.log(pg_conn);
     module.exports = pg_conn
