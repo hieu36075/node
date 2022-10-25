@@ -25,7 +25,10 @@ router.get('/createproduct/', function(req, res, next) {
 
 router.post('/createproduct/', async function(req, res, next) {
 console.log(req.body.nameproduct);
-  var data = await set_data_account(req.body.nameproduct, parseInt(req.body.quantity), parseInt(req.body.price), req.body.description, shopid);
+  var data = await set_data_account(req.body.nameproduct, 
+                                    parseInt(req.body.quantity), 
+                                    parseInt(req.body.price),
+                                     req.body.description, shopid);
   let [dataInDb, shopIdList] = await get_data_account(shopid);
 
   res.render('user', { title: 'Hello', products: dataInDb.rows });

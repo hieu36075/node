@@ -5,12 +5,24 @@
         <title> Create Product </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <!-- <link rel='stylesheet', href='/stylesheets/style.css'> -->
+        <nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand">ATN shop</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
       </head>
       <body>
+        <tbody>
+              <div class="container w-25 border py-5">
         <form action="/user/createproduct" method="POST">
           <div >
+            <h2>Creating Product</h2>
               <input type = "text" name="nameproduct" required>
-              <label for="nameproduct"> Name Product</label>
+              <label for="nameproduct"> Name</label>
           </div>
           <div>
               <input type="text" name="quantity" required>
@@ -25,8 +37,9 @@
             <label for ="description">Description </label>
         </div>
 
-          <button class="btn-success">Create</button>
+          <button class="btn btn-primary">Create</button style = "padding-left: 5px">
       </form> 
+              </div>
       </body>
         </html>
         <%- include('footer') -%>

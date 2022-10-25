@@ -44,8 +44,6 @@ router.post('/login', async function(req, res, next) {
     } else if (authenticated == true && role == "ADMIN") {
         session.shop_id = shop_id;
         res.redirect('admin');
-
-        
         // let [dataInDb, shopIdList] = await get_data_account(shop_id);
         // console.log(shopIdList);
         // res.render('admin', { title: 'ADMIN PAGES', data: dataInDb.rows, shopIdList: shopIdList.rows, products: null });
