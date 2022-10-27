@@ -5,10 +5,14 @@ var router = express.Router();
 const set_data_account = require('../model/setdatabyaccount');
 const deleteFunc = require('../model/deletedatabyaccount');
 const[getproduct, setproduct] = require('../model/getproduct');
+
 var shopid;
 // var session;
 /* GET users listing. */
+
 router.get('/', async function(req, res, next) {
+
+
   let session = req.session;
   // let dataInDb = session.dataInDb;
    shopid = session.shop_id;
